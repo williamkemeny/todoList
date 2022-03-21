@@ -19,6 +19,7 @@ const Todos = () => {
     <ul>
       {todos.map((todo) => (
         <li key={todo.id}>
+          <hr />
           <button className="btn" onClick={() => handleClick(todo.id)}>
             <i className="fa fa-close"></i>
           </button>
@@ -50,9 +51,11 @@ const TodoInput = () => {
 function App() {
   return (
     <div className="App">
-      <h1>Todo List</h1>
-      <Todos />
+      <h1>
+        Todo List <i className="fa fa-plus"></i>
+      </h1>
       <TodoInput />
+      <Todos />
     </div>
   );
 }

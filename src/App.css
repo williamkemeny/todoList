@@ -1,3 +1,22 @@
 ul {
   list-style-type: none;
+  padding: 0;
+}
+
+.App {
+  min-height: 80vh;
+  background-color: aliceblue;
+  text-align: center;
+  margin: 50px 30vw 50px 30vw;
+  border: solid;
+}
+
+h1 {
+  font-size: 48px;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 0.5rem;
+  line-height: 1em;
 }
