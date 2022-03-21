@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTodo, deleteTodo } from "./actions";
+import DOMPurify from "dompurify";
 import "./App.css";
 
 const Todos = () => {
@@ -37,7 +38,8 @@ const TodoInput = () => {
   useEffect(() => {
     localStorage.setItem("count", JSON.stringify(count));
   }, [count]);
-  const handleChange = (event) => setNewTodo(event.target.value);
+  const handleChange = (event) =>
+    setNewTodo(DOMPurify.sanitize(event.target.value));
   const handleClick = () => (dispatch(addTodo(newTodo)), setNewTodo(""));
   return (
     <div>
