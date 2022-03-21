@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTodo, deleteTodo } from "./actions";
 import "./App.css";
@@ -7,6 +7,10 @@ const Todos = () => {
   const dispatch = useDispatch();
   const todos = useSelector((state) => state.todos);
   const handleClick = (id) => dispatch(deleteTodo(id));
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   if (!todos || !todos.length) {
     return <p>No todos</p>;
@@ -29,6 +33,9 @@ const TodoInput = () => {
   const dispatch = useDispatch();
   const [newTodo, setNewTodo] = useState("");
   const count = useSelector((state) => state.count);
+  useEffect(() => {
+    localStorage.setItem("count", JSON.stringify(count));
+  }, [count]);
   const handleChange = (event) => setNewTodo(event.target.value);
   const handleClick = () => (dispatch(addTodo(newTodo)), setNewTodo(""));
   return (

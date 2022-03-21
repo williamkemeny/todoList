@@ -1,6 +1,8 @@
+const todoFromLocalStorage = JSON.parse(localStorage.getItem("todos") || "[]");
+const countFromLocalStorage = JSON.parse(localStorage.getItem("count") || "0");
 const initialState = {
-  todos: [],
-  count: 0,
+  todos: todoFromLocalStorage,
+  count: countFromLocalStorage,
 };
 
 const todoReducer = (state = initialState, action) => {
