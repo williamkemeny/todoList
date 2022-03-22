@@ -18,6 +18,11 @@ const todoReducer = (state = initialState, action) => {
         todos: state.todos.filter((todo) => todo.id !== action.payload),
         count: state.count + 1,
       };
+    case "COUNT_ZERO":
+      return {
+        todos: state.todos,
+        count: 0,
+      };
     default:
       return state;
   }

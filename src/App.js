@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, deleteTodo } from "./actions";
+import { addTodo, deleteTodo, countZero } from "./actions";
 import DOMPurify from "dompurify";
 import "./App.css";
 
@@ -34,10 +34,6 @@ const Todos = () => {
 const TodoInput = () => {
   const dispatch = useDispatch();
   const [newTodo, setNewTodo] = useState("");
-  const count = useSelector((state) => state.count);
-  useEffect(() => {
-    localStorage.setItem("count", JSON.stringify(count));
-  }, [count]);
   const handleChange = (event) =>
     setNewTodo(DOMPurify.sanitize(event.target.value));
   const handleClick = () => (dispatch(addTodo(newTodo)), setNewTodo(""));
@@ -45,7 +41,21 @@ const TodoInput = () => {
     <div>
       <input value={newTodo} onChange={handleChange} type="text" />
       <button onClick={handleClick}>Add Todo</button>
+    </div>
+  );
+};
+
+const Count = () => {
+  const dispatch = useDispatch();
+  const count = useSelector((state) => state.count);
+  useEffect(() => {
+    localStorage.setItem("count", JSON.stringify(count));
+  }, [count]);
+  const handleClick = () => dispatch(countZero());
+  return (
+    <div>
       <h2>Completed: {count}</h2>
+      <button onClick={handleClick}>Reset</button>
     </div>
   );
 };
@@ -58,6 +68,7 @@ function App() {
       </h1>
       <TodoInput />
       <Todos />
+      <Count />
     </div>
   );
 }

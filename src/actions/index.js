@@ -14,3 +14,9 @@ export const deleteTodo = (id) => {
     payload: id,
   };
 };
+
+export const countZero = () => {
+  return {
+    type: "COUNT_ZERO",
+  };
+};
