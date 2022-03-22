@@ -21,10 +21,12 @@ const Todos = () => {
       {todos.map((todo) => (
         <li key={todo.id}>
           <hr />
-          <button className="btn" onClick={() => handleClick(todo.id)}>
-            <i className="fa fa-close"></i>
-          </button>
-          {todo.label}
+          <div className="row">
+            <button onClick={() => handleClick(todo.id)}>
+              <i className="fa fa-close"></i>
+            </button>
+            {todo.label}
+          </div>
         </li>
       ))}
     </ul>

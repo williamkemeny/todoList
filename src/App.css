@@ -5,8 +5,10 @@ ul {
 
 .App {
   min-height: 80vh;
+  min-width: 225px;
   background-color: aliceblue;
   text-align: center;
+  align-items: center;
   margin: 50px 30vw 50px 30vw;
   border: solid;
 }
@@ -19,4 +21,18 @@ h1 {
   margin-top: 10px;
   margin-bottom: 0.5rem;
   line-height: 1em;
+}
+
+.row {
+  display: flex;
+  margin-left: 43%;
+}
+
+.row button {
+  margin-right: 10px;
+}
+
+button:hover {
+  opacity: 0.9;
+  color: aliceblue;
 }
