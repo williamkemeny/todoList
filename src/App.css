@@ -4,13 +4,99 @@ ul {
 }
 
 .App {
-  min-height: 80vh;
+  min-height: 70vh;
   min-width: 225px;
-  background-color: aliceblue;
+  background-color: rgb(225, 235, 247);
   text-align: center;
   align-items: center;
-  margin: 50px 30vw 50px 30vw;
-  border: solid;
+  margin: 55px 35vw 50px 35vw;
+  border-radius: 15px;
+}
+
+@media only screen and (max-width: 700px) {
+  body {
+    margin: 50px -10vw 50px -10vw;
+  }
+}
+@media only screen and (max-width: 340px) {
+  body {
+    margin: 50px -15vw 50px -15vw;
+  }
+}
+
+.topOfApp {
+  background-image: linear-gradient(
+    to right,
+
+    rgb(158, 166, 238),
+    rgb(148, 214, 240)
+  );
+  padding: 10px;
+  border-radius: 10px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.row {
+  display: flex;
+  margin-left: 40%;
+  gap: 20px;
+}
+
+.row button {
+  margin-right: 10px;
+  bottom: 0;
+}
+
+.bottomOfApp {
+  position: relative;
+  padding-top: 5px;
+  padding-bottom: 2vh;
+}
+
+.button-1 {
+  background-image: linear-gradient(#f7f8fa, #e7e9ec);
+  border-color: #adb1b8 #a2a6ac #8d9096;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  box-shadow: rgba(255, 255, 255, 0.6) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #0f1111;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Amazon Ember", Arial, sans-serif;
+  font-size: 14px;
+  height: 29px;
+  font-size: 13px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 11px;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+.button-1:active {
+  border-bottom-color: #a2a6ac;
+}
+
+.button-1:active:hover {
+  border-bottom-color: #a2a6ac;
+}
+
+.button-1:hover {
+  border-color: #a2a6ac #979aa1 #82858a;
+}
+
+.button-1:focus {
+  border-color: #e77600;
+  box-shadow: rgba(228, 121, 17, 0.5) 0 0 3px 2px;
+  outline: 0;
 }
 
 h1 {
@@ -18,21 +104,11 @@ h1 {
   position: relative;
   display: inline-block;
   margin: 0;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 0.5rem;
   line-height: 1em;
 }
 
-.row {
-  display: flex;
-  margin-left: 43%;
-}
-
-.row button {
-  margin-right: 10px;
-}
-
-button:hover {
-  opacity: 0.9;
-  color: aliceblue;
+strong {
+  padding: 20px;
 }

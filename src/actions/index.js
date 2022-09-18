@@ -1,9 +1,10 @@
-export const addTodo = (newTodo) => {
+export const addTodo = (newTodo, date) => {
   return {
     type: "ADD_TODO",
     payload: {
       label: newTodo,
       id: Date.now(),
+      day: date,
     },
   };
 };
