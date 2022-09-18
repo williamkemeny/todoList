@@ -2,6 +2,9 @@ ul {
   list-style-type: none;
   padding: 0;
 }
+li {
+  margin-top: 12px;
+}
 
 .App {
   min-height: 70vh;
@@ -29,7 +32,7 @@ ul {
     to right,
 
     rgb(158, 166, 238),
-    rgb(148, 214, 240)
+    rgb(113, 189, 233)
   );
   padding: 10px;
   border-radius: 10px;
