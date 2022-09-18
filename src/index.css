@@ -1,8 +1,9 @@
 html {
   height: 100%;
-  background-image: linear-gradient(to bottom, #93c2ff, #aceeff);
-  background-repeat: no-repeat;
+  background-image: linear-gradient(to bottom, #93c2ff, #aceeff, #93c2ff);
+  background-size: cover;
 }
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
