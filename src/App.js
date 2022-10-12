@@ -10,9 +10,9 @@ function App() {
         <h1>
           Todo List <i className="fa fa-plus"></i>
         </h1>
-        <TodoInput />
       </div>
       <Todos />
+      <TodoInput />
       <Count />
     </div>
   );

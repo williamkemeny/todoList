@@ -18,7 +18,7 @@ const Todos = () => {
     <ul>
       {todos.map((todo) => (
         <li key={todo.id}>
-          <strong>{todo.day}</strong>
+          <b>{todo.day}</b>
           <div className="row">
             {todo.label}
             <button className="button-1" onClick={() => handleClick(todo.id)}>
