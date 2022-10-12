@@ -31,7 +31,7 @@ const TodoInput = () => {
     <div>
       <input value={newTodo} onChange={handleChange} type="text" />
       <button className="button-1" onClick={handleClick}>
-        Add Todo
+        <i className="fa fa-plus"></i>
       </button>
     </div>
   );
