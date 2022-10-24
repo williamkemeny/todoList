@@ -19,7 +19,7 @@ const TodoEdit = (todo) => {
       {editButton ? (
         todo.label
       ) : (
-        <input value={editTodo} onChange={handleChange} type="text" />
+        <input value={editTodo} onChange={handleChange} type="text" size="7" />
       )}
       <div className="todocontrols">
         <div className="row">
