@@ -16,10 +16,13 @@ export const deleteTodo = (id) => {
   };
 };
 
-export const editTodo = (id) => {
+export const editTodo = (id, newText) => {
   return {
     type: "EDIT_TODO",
-    payload: id,
+    payload: {
+      id: id,
+      newText: newText,
+    },
   };
 };
 
