@@ -3,7 +3,7 @@ ul {
   padding: 0;
 }
 li {
-  animation: fadeIn 5s;
+  animation: fadeIn 3s;
   margin: 12px 0px 12px 0px;
 }
 @keyframes fadeIn {
@@ -33,7 +33,7 @@ li {
 }
 @media only screen and (max-width: 340px) {
   body {
-    margin: 50px -15vw 50px -15vw;
+    margin: 50px -10vw 50px -10vw;
   }
 }
 
@@ -52,11 +52,13 @@ li {
 
 .row {
   display: flex;
+}
+.margin-1 {
   margin-left: 35%;
 }
 
-.row button {
-  margin-right: 45px;
+.todocontrols {
+  margin-right: 55px;
   bottom: 0;
   margin-left: auto;
 }
@@ -68,6 +70,7 @@ li {
 }
 
 .button-1 {
+  margin-right: 3px;
   background-image: linear-gradient(
     rgba(167, 176, 255, 0.644),
     rgba(124, 207, 255, 0.589)
