@@ -8,14 +8,18 @@ const TodoEdit = (todo) => {
   todo = todo.todo;
   const dispatch = useDispatch();
   const [newText, setNewText] = useState(todo.label);
+  const [newDescription, setNewDescription] = useState(todo.description);
   const [editButton, setEditButton] = useState(true);
 
-  const handleChange = (event) =>
+  const handleChange1 = (event) =>
     setNewText(DOMPurify.sanitize(event.target.value));
+
+  const handleChange2 = (event) =>
+    setNewDescription(DOMPurify.sanitize(event.target.value));
 
   const handleClick = () => {
     if (editButton === false) {
-      dispatch(editTodo(todo.id, newText));
+      dispatch(editTodo(todo.id, newText, newDescription));
     }
     setEditButton(!editButton);
   };
@@ -23,9 +27,35 @@ const TodoEdit = (todo) => {
   return (
     <div className="row margin-1">
       {editButton ? (
-        todo.label
+        <div>
+          <div>
+            <p>Label: {todo.label}</p>
+          </div>
+          <div>
+            <p>Description: {todo.description}</p>
+          </div>
+        </div>
       ) : (
-        <input value={newText} onChange={handleChange} type="text" size="7" />
+        <div>
+          <div className="row-2">
+            <p>Label:</p>
+            <input
+              value={newText}
+              onChange={handleChange1}
+              type="text"
+              size="7"
+            />
+          </div>
+          <div className="row-2">
+            <p>Description:</p>
+            <input
+              value={newDescription}
+              onChange={handleChange2}
+              type="text"
+              size="7"
+            />
+          </div>
+        </div>
       )}
       <div className="todocontrols">
         <div className="row">
