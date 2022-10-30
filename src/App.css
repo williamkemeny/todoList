@@ -1,11 +1,26 @@
 ul {
   list-style-type: none;
   padding: 0;
+  overflow: auto;
 }
 li {
   animation: fadeIn 3s;
   margin: 12px 0px 12px 0px;
+  overflow-wrap: break-word;
 }
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid;
+  outline: 0;
+  font-size: 1.3rem;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -52,11 +67,24 @@ li {
 
 .row {
   display: flex;
-}
-.margin-1 {
-  margin-left: 11vw;
+  flex-wrap: break-word;
+  word-break: break-all;
+  justify-content: center;
 }
 
+.margin-1 {
+  margin-left: 9.5vw;
+}
+
+.row-2 {
+  display: flex;
+  justify-content: center;
+  align-self: auto;
+  flex-wrap: wrap;
+}
+.width {
+  min-width: 90px;
+}
 .todocontrols {
   margin-right: 55px;
   bottom: 0;
@@ -126,4 +154,33 @@ h1 {
 
 b {
   padding: 20px;
+}
+
+.input-container {
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+.input-container label {
+  position: absolute;
+  top: 10px;
+  font-size: 16px;
+}
+.input-container input {
+  border: 0;
+  border-bottom: 1px solid #555;
+  background: transparent;
+  padding: 8px 0 5px 0;
+  font-size: 16px;
+}
+.input-container input:focus {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #e74c3c;
+}
+
+.input-container input:focus ~ label,
+.input-container input:valid ~ label {
+  top: -10px;
+  font-size: 12px;
 }

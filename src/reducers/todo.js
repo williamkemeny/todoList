@@ -21,7 +21,15 @@ const todoReducer = (state = initialState, action) => {
     case "EDIT_TODO":
       return {
         ...state,
-        todos: state.todos.filter((todo) => todo.id !== action.payload),
+        todos: state.todos.map((todo) => {
+          if (todo.id === action.payload.id) {
+            todo.label = action.payload.newText;
+            todo.description = action.payload.newDescription;
+            return todo;
+          } else {
+            return todo;
+          }
+        }),
         count: state.count,
       };
     case "COUNT_ZERO":
