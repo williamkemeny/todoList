@@ -32,11 +32,14 @@ const TodoInput = () => {
     setNewTodo(DOMPurify.sanitize(event.target.value));
   const handleChange_2 = (event) =>
     setNewDescription(DOMPurify.sanitize(event.target.value));
-  const handleClick = () => (
-    dispatch(addTodo(newTodo, newDescription, dateNow())),
-    setNewTodo(""),
-    setNewDescription("")
-  );
+
+  const handleClick = () => {
+    if (newTodo !== "" || newDescription !== "") {
+      dispatch(addTodo(newTodo, newDescription, dateNow()));
+      setNewTodo("");
+      setNewDescription("");
+    }
+  };
   return (
     <div>
       <div className="row-2 input-container">
