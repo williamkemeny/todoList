@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteTodo } from "../actions";
+import { Row } from "./style/Row.styled";
+import { Button1 } from "./style/Button1.styled";
 
 const TodoDelete = (todo) => {
   todo = todo.todo;
@@ -14,11 +16,11 @@ const TodoDelete = (todo) => {
   }, [todo]);
 
   return (
-    <div className="row">
-      <button className="button-1" onClick={() => handleClick(todo.id)}>
+    <Row>
+      <Button1 onClick={() => handleClick(todo.id)}>
         <i className="fa fa-close"></i>
-      </button>
-    </div>
+      </Button1>
+    </Row>
   );
 };
 

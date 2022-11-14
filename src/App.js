@@ -1,20 +1,22 @@
 import Todos from "./components/Todos.js";
 import Count from "./components/Count.js";
 import TodoInput from "./components/TodoInput.js";
-import "./App.css";
+import { AppStyled } from "./components/style/App.styled";
+import { TopOfApp } from "./components/style/TopOfApp.styled";
+import { Header } from "./components/style/Header.styled";
 
 function App() {
   return (
-    <div className="App">
-      <div className="topOfApp">
-        <h1>
+    <AppStyled>
+      <TopOfApp>
+        <Header>
           Todo List <i className="fa fa-plus"></i>
-        </h1>
-      </div>
+        </Header>
+      </TopOfApp>
       <Todos />
       <TodoInput />
       <Count />
-    </div>
+    </AppStyled>
   );
 }
 

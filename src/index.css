@@ -12,18 +12,22 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media only screen and (max-width: 700px) {
+  body {
+    margin: 50px -10vw 50px -10vw;
+  }
+}
+@media only screen and (max-width: 340px) {
+  body {
+    margin: 50px -10vw 50px -10vw;
+  }
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-  overflow: auto;
-}
-li {
-  animation: fadeIn 3s;
-  margin: 12px 0px 12px 0px;
-  overflow-wrap: break-word;
+b {
+  padding: 20px;
 }

@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../actions";
+import { Row2 } from "./style/Row.styled";
+import { Button1 } from "./style/Button1.styled";
+import { InputContainer } from "./style/InputContainer.styled";
 import DOMPurify from "dompurify";
 
 const TodoInput = () => {
@@ -14,7 +17,6 @@ const TodoInput = () => {
     if (m / 10 < 1) {
       m = "0" + m;
     }
-    console.log(m / 10);
     let x =
       d.getFullYear() +
       "-" +
@@ -34,25 +36,40 @@ const TodoInput = () => {
     setNewDescription(DOMPurify.sanitize(event.target.value));
 
   const handleClick = () => {
-    if (newTodo !== "" || newDescription !== "") {
+    if (newTodo !== "" && newDescription !== "") {
       dispatch(addTodo(newTodo, newDescription, dateNow()));
       setNewTodo("");
       setNewDescription("");
     }
   };
+
   return (
     <div>
-      <div className="row-2 input-container">
-        <input value={newTodo} onChange={handleChange_1} type="text" />
-        <label>Label</label>
-      </div>
-      <div className="row-2 input-container">
-        <input value={newDescription} onChange={handleChange_2} type="text" />
-        <label>Description </label>
-      </div>
-      <button className="button-1" onClick={handleClick}>
+      <Row2>
+        <InputContainer>
+          <input
+            value={newTodo}
+            onChange={handleChange_1}
+            type="text"
+            placeholder="Label"
+          />
+          <label>Label</label>
+        </InputContainer>
+      </Row2>
+      <Row2>
+        <InputContainer>
+          <input
+            value={newDescription}
+            onChange={handleChange_2}
+            type="text"
+            placeholder="Description"
+          />
+          <label>Description </label>
+        </InputContainer>
+      </Row2>
+      <Button1 onClick={handleClick}>
         <i className="fa fa-plus"></i>
-      </button>
+      </Button1>
     </div>
   );
 };

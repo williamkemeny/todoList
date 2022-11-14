@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { countZero } from "../actions";
+import { BottomOfApp } from "./style/BottomOfApp.styled";
+import { Button1 } from "./style/Button1.styled";
 
 const Count = () => {
   const dispatch = useDispatch();
@@ -10,12 +12,10 @@ const Count = () => {
   }, [count]);
   const handleClick = () => dispatch(countZero());
   return (
-    <div className="bottomOfApp">
+    <BottomOfApp>
       <h2>Completed: {count}</h2>
-      <button className="button-1" onClick={handleClick}>
-        Reset
-      </button>
-    </div>
+      <Button1 onClick={handleClick}>Reset</Button1>
+    </BottomOfApp>
   );
 };
 
