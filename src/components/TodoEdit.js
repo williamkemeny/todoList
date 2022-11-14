@@ -5,6 +5,7 @@ import TodoDelete from "./TodoDelete.js";
 import { Row, Row1, Row2 } from "./style/Row.styled";
 import { Button1 } from "./style/Button1.styled";
 import { TodoControls } from "./style/TodoControls.styled";
+import { InputContainer1 } from "./style/InputContainer.styled";
 import DOMPurify from "dompurify";
 
 const TodoEdit = (todo) => {
@@ -41,22 +42,22 @@ const TodoEdit = (todo) => {
       ) : (
         <div>
           <Row2>
-            <p>Label:</p>
-            <input
+            <InputContainer1
               value={newText}
               onChange={handleChange1}
               type="text"
               size="7"
             />
+            <label>Label</label>
           </Row2>
           <Row2>
-            <p>Description:</p>
-            <input
+            <InputContainer1
               value={newDescription}
               onChange={handleChange2}
               type="text"
               size="7"
             />
+            <label>Description</label>
           </Row2>
         </div>
       )}

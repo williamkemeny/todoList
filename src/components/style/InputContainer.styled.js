@@ -18,7 +18,7 @@ export const InputContainer = styled.div`
     font-family: inherit;
     width: 100%;
     border: 0;
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid black;
     outline: 0;
     font-size: 1.2rem;
     padding: 7px 0;
@@ -57,6 +57,50 @@ export const InputContainer = styled.div`
   }
 
   input {
+    &:required,
+    &:invalid {
+      box-shadow: none;
+    }
+  }
+`;
+
+export const InputContainer1 = styled.input`
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid black;
+  outline: 0;
+  font-size: 1.2rem;
+  padding: 7px 0;
+  background: transparent;
+  label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+  }
+
+  &:focus {
+    ~ label {
+      top: 0;
+      display: block;
+      transition: 0.2s;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(
+      to right,
+      rgb(158, 166, 238),
+      rgb(113, 189, 233)
+    );
+    border-image-slice: 1;
+  }
+
+  & {
     &:required,
     &:invalid {
       box-shadow: none;
