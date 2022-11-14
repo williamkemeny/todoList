@@ -1,7 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { editTodo } from "../actions";
 import TodoDelete from "./TodoDelete.js";
+import { Row, Row1, Row2 } from "./style/Row.styled";
+import { Button1 } from "./style/Button1.styled";
+import { TodoControls } from "./style/TodoControls.styled";
 import DOMPurify from "dompurify";
 
 const TodoEdit = (todo) => {
@@ -25,7 +28,7 @@ const TodoEdit = (todo) => {
   };
 
   return (
-    <div className="row margin-1">
+    <Row1>
       {editButton ? (
         <div>
           <div>
@@ -37,7 +40,7 @@ const TodoEdit = (todo) => {
         </div>
       ) : (
         <div>
-          <div className="row-2">
+          <Row2>
             <p>Label:</p>
             <input
               value={newText}
@@ -45,8 +48,8 @@ const TodoEdit = (todo) => {
               type="text"
               size="7"
             />
-          </div>
-          <div className="row-2">
+          </Row2>
+          <Row2>
             <p>Description:</p>
             <input
               value={newDescription}
@@ -54,18 +57,18 @@ const TodoEdit = (todo) => {
               type="text"
               size="7"
             />
-          </div>
+          </Row2>
         </div>
       )}
-      <div className="todocontrols">
-        <div className="row">
-          <button className="button-1" onClick={handleClick}>
+      <TodoControls>
+        <Row>
+          <Button1 onClick={handleClick}>
             <i className="fa fa-pencil"></i>
-          </button>
+          </Button1>
           <TodoDelete todo={todo} />
-        </div>
-      </div>
-    </div>
+        </Row>
+      </TodoControls>
+    </Row1>
   );
 };
 

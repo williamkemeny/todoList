@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import TodoEdit from "./TodoEdit.js";
+import { List } from "./style/List.styled";
+import { UnorderedList } from "./style/UnorderedList.styled";
 
 const Todos = () => {
   const todos = useSelector((state) => state.todos);
@@ -12,14 +14,14 @@ const Todos = () => {
     return <p>No todos</p>;
   }
   return (
-    <ul>
+    <UnorderedList>
       {todos.map((todo) => (
-        <li key={todo.id}>
+        <List key={todo.id}>
           <b>{todo.day}</b>
           <TodoEdit todo={todo} />
-        </li>
+        </List>
       ))}
-    </ul>
+    </UnorderedList>
   );
 };
 
