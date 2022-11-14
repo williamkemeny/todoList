@@ -12,14 +12,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 780px) {
   body {
-    margin: 50px -10vw 50px -10vw;
+    margin: 50px -15vw 50px -15vw;
   }
 }
-@media only screen and (max-width: 340px) {
+@media only screen and (max-width: 450px) {
   body {
-    margin: 50px -10vw 50px -10vw;
+    margin: 50px -19vw 50px -19vw;
+  }
+}
+@media only screen and (max-width: 330px) {
+  body {
+    margin: 50px -49vw 48px -18vw;
   }
 }
 
