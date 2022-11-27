@@ -1,15 +1,22 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../actions";
-import { Row2 } from "./style/Row.styled";
+import { Row2, Row3 } from "./style/Row.styled";
 import { Button1 } from "./style/Button1.styled";
 import { InputContainer } from "./style/InputContainer.styled";
 import DOMPurify from "dompurify";
+
+import dayjs from "dayjs";
+import TextField from "@mui/material/TextField";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 const TodoInput = () => {
   const dispatch = useDispatch();
   const [newTodo, setNewTodo] = useState("");
   const [newDescription, setNewDescription] = useState("");
+  const [dateTime, setDateTime] = useState(dayjs("2023-02-01 12:00:00"));
 
   const dateNow = () => {
     let d = new Date();
@@ -37,7 +44,7 @@ const TodoInput = () => {
 
   const handleClick = () => {
     if (newTodo !== "" && newDescription !== "") {
-      dispatch(addTodo(newTodo, newDescription, dateNow()));
+      dispatch(addTodo(newTodo, newDescription, dateTime, dateNow()));
       setNewTodo("");
       setNewDescription("");
     }
@@ -67,6 +74,18 @@ const TodoInput = () => {
           <label>Description </label>
         </InputContainer>
       </Row2>
+      <Row3>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DateTimePicker
+            renderInput={(props) => <TextField {...props} />}
+            label="Due Date Picker"
+            value={dateTime}
+            onChange={(newValue) => {
+              setDateTime(newValue);
+            }}
+          />
+        </LocalizationProvider>
+      </Row3>
       <Button1 onClick={handleClick}>
         <i className="fa fa-plus"></i>
       </Button1>

@@ -25,6 +25,7 @@ const todoReducer = (state = initialState, action) => {
           if (todo.id === action.payload.id) {
             todo.label = action.payload.newText;
             todo.description = action.payload.newDescription;
+            todo.due = action.payload.dueDate;
             return todo;
           } else {
             return todo;
