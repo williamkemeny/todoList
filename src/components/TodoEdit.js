@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { editTodo } from "../actions";
 import TodoDelete from "./TodoDelete.js";
+import Calendar from "./Calendar.js";
 import { Row, Row1, Row2 } from "./style/Row.styled";
 import { Button1 } from "./style/Button1.styled";
 import { TodoControls } from "./style/TodoControls.styled";
@@ -33,10 +34,14 @@ const TodoEdit = (todo) => {
       {editButton ? (
         <div>
           <div>
-            <p>Label: {todo.label}</p>
+            <p>
+              <i>Label:</i> {todo.label}
+            </p>
           </div>
           <div>
-            <p>Description: {todo.description}</p>
+            <p>
+              <i>Description:</i> {todo.description}
+            </p>
           </div>
         </div>
       ) : (
@@ -66,6 +71,7 @@ const TodoEdit = (todo) => {
           <Button1 onClick={handleClick}>
             <i className="fa fa-pencil"></i>
           </Button1>
+          <Calendar />
           <TodoDelete todo={todo} />
         </Row>
       </TodoControls>
