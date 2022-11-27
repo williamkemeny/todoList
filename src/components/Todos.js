@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import TodoEdit from "./TodoEdit.js";
 import { List } from "./style/List.styled";
 import { UnorderedList } from "./style/UnorderedList.styled";
+import { ImportantText } from "./style/ImportantText.styled";
 
 const Todos = () => {
   const todos = useSelector((state) => state.todos);
@@ -11,7 +12,7 @@ const Todos = () => {
   }, [todos]);
 
   if (!todos || !todos.length) {
-    return <p>No todos</p>;
+    return <ImportantText>No todos</ImportantText>;
   }
   return (
     <UnorderedList>
