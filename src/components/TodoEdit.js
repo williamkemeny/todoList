@@ -3,11 +3,17 @@ import { useDispatch } from "react-redux";
 import { editTodo } from "../actions";
 import TodoDelete from "./TodoDelete.js";
 import Calendar from "./Calendar.js";
-import { Row, Row1, Row2 } from "./style/Row.styled";
+import { Row, Row1, Row2, Row3 } from "./style/Row.styled";
 import { Button1 } from "./style/Button1.styled";
 import { TodoControls } from "./style/TodoControls.styled";
 import { InputContainer1 } from "./style/InputContainer.styled";
+import dayjs from "dayjs";
 import DOMPurify from "dompurify";
+
+import TextField from "@mui/material/TextField";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 const TodoEdit = (todo) => {
   todo = todo.todo;
@@ -15,6 +21,7 @@ const TodoEdit = (todo) => {
   const [newText, setNewText] = useState(todo.label);
   const [newDescription, setNewDescription] = useState(todo.description);
   const [editButton, setEditButton] = useState(true);
+  const [dateTime, setDateTime] = useState(dayjs(todo.due));
 
   const handleChange1 = (event) =>
     setNewText(DOMPurify.sanitize(event.target.value));
@@ -24,10 +31,13 @@ const TodoEdit = (todo) => {
 
   const handleClick = () => {
     if (editButton === false) {
-      dispatch(editTodo(todo.id, newText, newDescription));
+      dispatch(editTodo(todo.id, newText, newDescription, dateTime));
     }
     setEditButton(!editButton);
   };
+
+  const dueDateDayjs = dayjs(todo.due);
+  const dueDate = dueDateDayjs.$d + "";
 
   return (
     <Row1>
@@ -41,6 +51,11 @@ const TodoEdit = (todo) => {
           <div>
             <p>
               <i>Description:</i> {todo.description}
+            </p>
+          </div>
+          <div>
+            <p>
+              <i>Due:</i> {dueDate}
             </p>
           </div>
         </div>
@@ -64,6 +79,18 @@ const TodoEdit = (todo) => {
             />
             <label>Description</label>
           </Row2>
+          <Row3>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DateTimePicker
+                renderInput={(props) => <TextField {...props} />}
+                label="Due Date Picker"
+                value={dateTime}
+                onChange={(newValue) => {
+                  setDateTime(newValue);
+                }}
+              />
+            </LocalizationProvider>
+          </Row3>
         </div>
       )}
       <TodoControls>

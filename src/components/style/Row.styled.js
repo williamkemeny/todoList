@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 export const Row = styled.div`
   display: flex;
-  flex-wrap: break-word;
-  word-break: break-word;
+  word-break: keep-all;
   justify-content: center;
   text-align: left;
 `;
@@ -17,4 +16,8 @@ export const Row2 = styled.div`
   justify-content: center;
   align-self: auto;
   flex-wrap: wrap;
+`;
+
+export const Row3 = styled(Row2)`
+  margin-top: 20px;
 `;
