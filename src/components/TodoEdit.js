@@ -7,6 +7,7 @@ import { Row, Row1, Row2, Row3 } from "./style/Row.styled";
 import { Button1 } from "./style/Button1.styled";
 import { TodoControls } from "./style/TodoControls.styled";
 import { InputContainer1 } from "./style/InputContainer.styled";
+import { ImportantText1, ImportantText2 } from "./style/ImportantText.styled";
 import dayjs from "dayjs";
 import DOMPurify from "dompurify";
 
@@ -43,11 +44,8 @@ const TodoEdit = (todo) => {
     <Row1>
       {editButton ? (
         <div>
-          <div>
-            <p>
-              <i>Label:</i> {todo.label}
-            </p>
-          </div>
+          <ImportantText1>{todo.label}</ImportantText1>
+
           <div>
             <p>
               <i>Description:</i> {todo.description}
@@ -58,6 +56,7 @@ const TodoEdit = (todo) => {
               <i>Due:</i> {dueDate}
             </p>
           </div>
+          <ImportantText2>{todo.day}</ImportantText2>
         </div>
       ) : (
         <div>
@@ -91,6 +90,7 @@ const TodoEdit = (todo) => {
               />
             </LocalizationProvider>
           </Row3>
+          <ImportantText2>{todo.day}</ImportantText2>
         </div>
       )}
       <TodoControls>
