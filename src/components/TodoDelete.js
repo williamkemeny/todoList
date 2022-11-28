@@ -13,6 +13,7 @@ const TodoDelete = (todo) => {
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
+    // eslint-disable-next-line
   }, [todo]);
 
   return (
