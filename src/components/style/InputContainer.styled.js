@@ -79,6 +79,7 @@ export const InputContainer1 = styled.input`
     display: block;
     transition: 0.2s;
     font-size: 1rem;
+    pointer-events: none;
   }
 
   &:focus {
@@ -88,6 +89,7 @@ export const InputContainer1 = styled.input`
       transition: 0.2s;
       font-size: 1rem;
       font-weight: 700;
+      pointer-events: none;
     }
     padding-bottom: 6px;
     font-weight: 700;

@@ -16,7 +16,7 @@ const TodoInput = () => {
   const dispatch = useDispatch();
   const [newTodo, setNewTodo] = useState("");
   const [newDescription, setNewDescription] = useState("");
-  const [dateTime, setDateTime] = useState(dayjs("2023-02-01 12:00:00"));
+  const [dateTime, setDateTime] = useState(dayjs(Date.now()));
 
   const dateNow = () => {
     let d = new Date();

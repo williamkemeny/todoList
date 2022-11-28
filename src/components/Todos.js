@@ -18,7 +18,6 @@ const Todos = () => {
     <UnorderedList>
       {todos.map((todo) => (
         <List key={todo.id}>
-          <b>{todo.day}</b>
           <TodoEdit todo={todo} />
         </List>
       ))}
